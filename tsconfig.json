@@ -4,6 +4,7 @@
     "baseUrl": "./",
     "importHelpers": true,
     "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
     "declaration": false,
     "module": "es2020",
@@ -22,6 +23,6 @@
       "dom",
       "esnext.asynciterable"
     ],
-    "useDefineForClassFields": false
-  }
+    "useDefineForClassFields": false,
+  },
 }
