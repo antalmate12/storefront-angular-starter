@@ -16,7 +16,7 @@ import { GET_CART_TOTALS } from './cart-toggle.graphql';
 export class CartToggleComponent implements OnInit {
     @Output() toggle = new EventEmitter<void>();
     cart$: Observable<{ total: number; quantity: number; }>;
-    cartChangeIndication$: Observable<boolean>;
+    // cartChangeIndication$: Observable<any>;
 
     constructor(private dataService: DataService,
                 private stateService: StateService) {
@@ -36,15 +36,15 @@ export class CartToggleComponent implements OnInit {
             }),
             shareReplay(1),
         );
-        this.cartChangeIndication$ = this.cart$.pipe(
-            map(cart => cart.quantity),
-            distinctUntilChanged(),
-            switchMap(() => zip(
-                    from([true, false]),
-                    timer(0, 1000),
-                    val => val,
-                ),
-            ),
-        );
+        // this.cartChangeIndication$ = this.cart$.pipe(
+        //     map(cart => cart.quantity),
+        //     distinctUntilChanged(),
+        //     switchMap(() => zip(
+        //             from([true, false]),
+        //             timer(0, 1000),
+        //             val => val,
+        //         ),
+        //     ),
+        // );
     }
 }
