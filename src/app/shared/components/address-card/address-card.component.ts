@@ -1,23 +1,24 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-
-import { AddressFragment, OrderAddressFragment } from '../../../common/generated-types';
-import { DataService } from '../../../core/providers/data/data.service';
+import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
+import {
+    AddressFragment,
+    OrderAddressFragment,
+} from "../../../common/generated-types";
 
 @Component({
-    selector: 'vsf-address-card',
-    templateUrl: './address-card.component.html',
+    selector: "vsf-address-card",
+    templateUrl: "./address-card.component.html",
     // styleUrls: ['./address-card.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddressCardComponent {
     @Input() address: OrderAddressFragment | AddressFragment;
-    @Input() title = '';
+    @Input() title = "";
 
     getCountryName(): string {
         if (!this.address.country) {
-            return '';
+            return "";
         }
-        if (typeof this.address.country === 'string') {
+        if (typeof this.address.country === "string") {
             return this.address.country;
         } else {
             return this.address.country.name;

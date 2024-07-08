@@ -28,7 +28,7 @@ export class DataService {
     }
 
     mutate<T = any, V = any>(mutation: DocumentNode, variables?: V): Observable<T> {
-        return this.apollo.mutate<T, V>({
+        return this.apollo.mutate<T, any>({
             mutation,
             variables,
             context: this.context,
